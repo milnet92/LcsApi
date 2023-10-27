@@ -1,6 +1,6 @@
 # LcsApi
 
-LcsApi is an unofficial APIs that MS Lifecycle Services uses to execute all the operations on LCS.
+LcsApi is an unofficial API that MS Lifecycle Services uses to execute all the operations on LCS.
 
 Since LCS does not provide OAuth flow authentication, this client uses Selenium in the background to gather the required authentication cookies.
 
