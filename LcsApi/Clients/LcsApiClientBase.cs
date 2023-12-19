@@ -24,7 +24,7 @@ namespace LcsApi.Clients
         public string BaseUrl { get; init; }
         public virtual string VerificationTokenUrl => $"{BaseUrl}/V2";
 
-        public LcsApiClientBase(ILcsConnection connection, string? baseUrl = null, string? apiDomain = null)
+        internal LcsApiClientBase(ILcsConnection connection, string? baseUrl = null, string? apiDomain = null)
         {
             Connection = connection ?? throw new ArgumentNullException(nameof(connection));
             

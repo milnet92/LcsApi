@@ -114,6 +114,51 @@ namespace LcsApi.Clients
         }
 
         /// <summary>
+        /// Gets the upcoming update calendar for the selected project 
+        /// </summary>
+        /// <param name="projectId">Project ID</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<UpcomingUpdateCalendar?> GetUpcomingUpdateCalendarAsync(int projectId, CancellationToken cancellationToken = default)
+        {
+            return await GetLcsResponseAsync<UpcomingUpdateCalendar>($"RainierSettings/GetUpcomingCalendars", projectId, null, cancellationToken);
+        }
+
+        /// <summary>
+        /// Gets the update pause window for the selected project
+        /// </summary>
+        /// <param name="projectId">Project ID</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<UpdatePauseWindowForProject?> GetUpdatePauseWindowForProjectAsync(int projectId, CancellationToken cancellationToken = default)
+        {
+            return await GetLcsResponseAsync<UpdatePauseWindowForProject>($"RainierSettings/CheckUpdatePauseWindowForProject", projectId, null, cancellationToken);
+        }
+
+
+        /// <summary>
+        /// Gets the project owner's organization
+        /// </summary>
+        /// <param name="projectId">Project ID</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<ProjectOrganization?> GetProjectOwnerOrganizationAsync(int projectId, CancellationToken cancellationToken = default)
+        {
+            return await GetLcsResponseAsync<ProjectOrganization>($"RainierSettings/GetProjectOwnerOrganization", projectId, null, cancellationToken);
+        }
+
+        /// <summary>
+        /// Gets the list of organizations for the given project
+        /// </summary>
+        /// <param name="projectId">Project ID</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<ProjectOrganization[]?> GetProjectOrganizationsAsync(int projectId, CancellationToken cancellationToken = default)
+        {
+            return await GetLcsResponseAsync<ProjectOrganization[]>("RainierSettings/GetProjectOrganizations", projectId, null, cancellationToken);
+        }
+
+        /// <summary>
         /// Gets the deployment summary for the given project
         /// </summary>
         /// <param name="projectId">Project ID</param>
