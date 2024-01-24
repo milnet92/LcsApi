@@ -5,6 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <OutputType>Library</OutputType>
+    <Authors>milnet92</Authors>
+    <RepositoryUrl>https://github.com/milnet92/LcsApi</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

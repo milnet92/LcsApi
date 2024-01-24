@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0D1C874E-3674-4881-8842-B36723F915A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LcsApiNetFramework</RootNamespace>
+    <AssemblyName>LcsApiNetFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.11.57.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.57\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.4.16.2\lib\netstandard2.0\WebDriver.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\BrowserAuthenticationOptions.cs" />
+    <Compile Include="Authentication\BrowserAuthenticationProvider.cs" />
+    <Compile Include="Authentication\IBrowserAuthenticationOptions.cs" />
+    <Compile Include="Authentication\IBrowserAuthenticationProvider.cs" />
+    <Compile Include="Clients\ILcsConnection.cs" />
+    <Compile Include="Clients\LcsApiClient.cs" />
+    <Compile Include="Clients\LcsApiClientBase.cs" />
+    <Compile Include="Clients\LcsConnection.cs" />
+    <Compile Include="Clients\LcsConnectionOptions.cs" />
+    <Compile Include="Clients\LcsDiagnosticsApiClient.cs" />
+    <Compile Include="Clients\LcsSizingApiClient.cs" />
+    <Compile Include="Exceptions\LcsResponseException.cs" />
+    <Compile Include="Extensions\DeployablePackageExtensions.cs" />
+    <Compile Include="Extensions\HttpExtensions.cs" />
+    <Compile Include="Extensions\JsonObjectExtensions.cs" />
+    <Compile Include="Extensions\WebDriverExtensions.cs" />
+    <Compile Include="Model\Action.cs" />
+    <Compile Include="Model\ActionCenterDataViewModel.cs" />
+    <Compile Include="Model\ActionDetails.cs" />
+    <Compile Include="Model\AdditionalInfo.cs" />
+    <Compile Include="Model\Asset.cs" />
+    <Compile Include="Model\AssetComponentDetails.cs" />
+    <Compile Include="Model\AssetDownload.cs" />
+    <Compile Include="Model\AssetMetadata.cs" />
+    <Compile Include="Model\BuildInfoDetails.cs" />
+    <Compile Include="Model\BuildInfoEnvironment.cs" />
+    <Compile Include="Model\BuildInfoTreeView.cs" />
+    <Compile Include="Model\CardActionLink.cs" />
+    <Compile Include="Model\CDSDeploymentDetails.cs" />
+    <Compile Include="Model\CheckBoxCustomization.cs" />
+    <Compile Include="Model\CloudHostedInstance.cs" />
+    <Compile Include="Model\ComboBoxCustomization.cs" />
+    <Compile Include="Model\Common\DynamicPaging.cs" />
+    <Compile Include="Model\Common\Enums.cs" />
+    <Compile Include="Model\Common\LcsResponse.cs" />
+    <Compile Include="Model\Common\PaginatedRequest.cs" />
+    <Compile Include="Model\Common\PaginatedResponse.cs" />
+    <Compile Include="Model\Connector.cs" />
+    <Compile Include="Model\Credentials.cs" />
+    <Compile Include="Model\CustomizationGroup.cs" />
+    <Compile Include="Model\CustomizationValue.cs" />
+    <Compile Include="Model\CustomizationValueSelection.cs" />
+    <Compile Include="Model\CustomLink.cs" />
+    <Compile Include="Model\DatabaseMovementAction.cs" />
+    <Compile Include="Model\DefaultConnector.cs" />
+    <Compile Include="Model\DependentCustomizationValues.cs" />
+    <Compile Include="Model\DeployablePackage.cs" />
+    <Compile Include="Model\DeployablePackageHistoryDetails.cs" />
+    <Compile Include="Model\DeploymentCustomization.cs" />
+    <Compile Include="Model\DeploymentCustomizationGroupOption.cs" />
+    <Compile Include="Model\DeploymentInstance.cs" />
+    <Compile Include="Model\DeploymentProgress.cs" />
+    <Compile Include="Model\DeploymentSummary.cs" />
+    <Compile Include="Model\DetailsForExport.cs" />
+    <Compile Include="Model\Diagnostics\Counter.cs" />
+    <Compile Include="Model\Diagnostics\DiagnosticInfo.cs" />
+    <Compile Include="Model\Diagnostics\DistinctUser.cs" />
+    <Compile Include="Model\Diagnostics\EnvironmentMonitoringData.cs" />
+    <Compile Include="Model\Diagnostics\ErrorEvent.cs" />
+    <Compile Include="Model\Diagnostics\FastQueryResult.cs" />
+    <Compile Include="Model\Diagnostics\InteractionData.cs" />
+    <Compile Include="Model\Diagnostics\Message.cs" />
+    <Compile Include="Model\Diagnostics\Metric.cs" />
+    <Compile Include="Model\Diagnostics\MetricData.cs" />
+    <Compile Include="Model\Diagnostics\MetricDataValue.cs" />
+    <Compile Include="Model\Diagnostics\MonitoringInteractionData.cs" />
+    <Compile Include="Model\Diagnostics\RoleInstance.cs" />
+    <Compile Include="Model\Diagnostics\SlowInteraction.cs" />
+    <Compile Include="Model\Diagnostics\SlowQuery.cs" />
+    <Compile Include="Model\Diagnostics\SqlAction.cs" />
+    <Compile Include="Model\Diagnostics\SqlUtilization.cs" />
+    <Compile Include="Model\Diagnostics\UserLoginEvent.cs" />
+    <Compile Include="Model\ECommerceDeploymentInfo.cs" />
+    <Compile Include="Model\ECommerceEnvironment.cs" />
+    <Compile Include="Model\EmptyFileAsset.cs" />
+    <Compile Include="Model\EnvironmentAction.cs" />
+    <Compile Include="Model\EnvironmentCDSDetails.cs" />
+    <Compile Include="Model\EnvironmentCustomization.cs" />
+    <Compile Include="Model\EnvironmentCustomizationRequest.cs" />
+    <Compile Include="Model\EnvironmentDeployTopology.cs" />
+    <Compile Include="Model\EnvironmentDeployTopologyValue.cs" />
+    <Compile Include="Model\EnvironmentNotifications.cs" />
+    <Compile Include="Model\EnvironmentStatus.cs" />
+    <Compile Include="Model\EvalRuleLog.cs" />
+    <Compile Include="Model\ExportedInstance.cs" />
+    <Compile Include="Model\FieldValueCustomization.cs" />
+    <Compile Include="Model\FileAssetProperty.cs" />
+    <Compile Include="Model\FileAssetVersion.cs" />
+    <Compile Include="Model\FileTypeProperty.cs" />
+    <Compile Include="Model\Hotfix.cs" />
+    <Compile Include="Model\InstanceCustomization.cs" />
+    <Compile Include="Model\InstanceReference.cs" />
+    <Compile Include="Model\InvitedBy.cs" />
+    <Compile Include="Model\JITOptions.cs" />
+    <Compile Include="Model\LabelValue.cs" />
+    <Compile Include="Model\LearningTile.cs" />
+    <Compile Include="Model\Link.cs" />
+    <Compile Include="Model\Methodology.cs" />
+    <Compile Include="Model\MethodologyMasterTemplate.cs" />
+    <Compile Include="Model\MethodologyMasterTemplateMapValue.cs" />
+    <Compile Include="Model\MethodologyPhase.cs" />
+    <Compile Include="Model\MethodologyProduct.cs" />
+    <Compile Include="Model\MethodologyReference.cs" />
+    <Compile Include="Model\Module.cs" />
+    <Compile Include="Model\Navigationlink.cs" />
+    <Compile Include="Model\NetworkSecurityGroup.cs" />
+    <Compile Include="Model\Notification.cs" />
+    <Compile Include="Model\NotificationsUserList.cs" />
+    <Compile Include="Model\NSGRule.cs" />
+    <Compile Include="Model\OneVersionUpdateView.cs" />
+    <Compile Include="Model\OneVersionViewVersion.cs" />
+    <Compile Include="Model\Organization.cs" />
+    <Compile Include="Model\OrganizationReference.cs" />
+    <Compile Include="Model\PagingParameters.cs" />
+    <Compile Include="Model\Plan.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ProductVersion.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\ProjectInstance.cs" />
+    <Compile Include="Model\ProjectMethodology.cs" />
+    <Compile Include="Model\ProjectNotification.cs" />
+    <Compile Include="Model\ProjectOrganization.cs" />
+    <Compile Include="Model\ProjectProduct.cs" />
+    <Compile Include="Model\ProjectReference.cs" />
+    <Compile Include="Model\ProjectSettings.cs" />
+    <Compile Include="Model\ProjectUser.cs" />
+    <Compile Include="Model\ProjectUserCapabilities.cs" />
+    <Compile Include="Model\RDPConnectionDetails.cs" />
+    <Compile Include="Model\Report.cs" />
+    <Compile Include="Model\RetailBaseBuild.cs" />
+    <Compile Include="Model\RetailEnvironment.cs" />
+    <Compile Include="Model\RetailResult.cs" />
+    <Compile Include="Model\RetailSystemCheckHealth.cs" />
+    <Compile Include="Model\SandboxAddon.cs" />
+    <Compile Include="Model\ScaleUnit.cs" />
+    <Compile Include="Model\Service.cs" />
+    <Compile Include="Model\ServiceAccessState.cs" />
+    <Compile Include="Model\EnvironmentActionResponse.cs" />
+    <Compile Include="Model\ServiceToRestart.cs" />
+    <Compile Include="Model\ServicingInfo.cs" />
+    <Compile Include="Model\Sizing\ActivationHistory.cs" />
+    <Compile Include="Model\Sizing\EstimateAnswer.cs" />
+    <Compile Include="Model\Sizing\SubmittedEstimation.cs" />
+    <Compile Include="Model\Sizing\SubscriptionEstimate.cs" />
+    <Compile Include="Model\Sizing\UsageAnswer.cs" />
+    <Compile Include="Model\StartStopDeploymentRequest.cs" />
+    <Compile Include="Model\Subscription.cs" />
+    <Compile Include="Model\SupportedPlatformVersion.cs" />
+    <Compile Include="Model\SupportRequest.cs" />
+    <Compile Include="Model\TenantPlanDetails.cs" />
+    <Compile Include="Model\TopologyValue.cs" />
+    <Compile Include="Model\UpcomingCalendarViewModel.cs" />
+    <Compile Include="Model\UpcomingUpdateCalendar.cs" />
+    <Compile Include="Model\UpdatePauseWindowForProject.cs" />
+    <Compile Include="Model\UserProfile.cs" />
+    <Compile Include="Model\ValidateSandboxServicingData.cs" />
+    <Compile Include="Model\Version.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Selenium.WebDriver.4.16.2\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.16.2\build\Selenium.WebDriver.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.4.16.2\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.4.16.2\build\Selenium.WebDriver.targets'))" />
+  </Target>
+</Project>
