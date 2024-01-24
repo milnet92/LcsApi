@@ -33,7 +33,7 @@ LcsApiClient client = await connection.GetClientAsync<LcsApiClient>();
 ```
 this will trigger the authentication process in the background and will wait for completion.
 
-You can use now the client
+You can now use the client
 ```csharp
 // Retrieve project information 
 Project? project = await client.GetProjectAsync(projectId: 666666);
