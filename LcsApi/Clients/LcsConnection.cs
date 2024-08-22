@@ -20,7 +20,7 @@ using LcsApi.Extensions;
 
 namespace LcsApi.Clients
 {
-    internal class LcsConnection : ILcsConnection, IDisposable
+    public class LcsConnection : ILcsConnection, IDisposable
     {
         public const string LCSPID = "lcspid";
         public const string VERIFICATION_TOKEN_HEADER = "__RequestVerificationToken";
