@@ -112,28 +112,6 @@ namespace LcsApi.Clients
         }
 
         /// <summary>
-        /// Creates a new network seecurity group to access environment's RDP for non Service Fabric deployment environments
-        /// </summary>
-        /// <param name="projectId">Project ID</param>
-        /// <param name="environmentId">Environment ID</param>
-        /// <param name="ruleName">Rule name</param>
-        /// <param name="ips">IPs</param>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
-        public async Task<bool> AddNetworkSecurityGroupRdpAsync(int projectId, Guid environmentId, string ruleName, string ips, CancellationToken cancellationToken = default)
-        {
-            Dictionary<string, object> body = new Dictionary<string, object>()
-            {
-                { "newRuleName", ruleName },
-                { "newRuleIpOrCidr", ips },
-                { "lcsEnvironmentId", environmentId },
-                { "newRuleService", "RDP" }
-            };
-
-            return await PostLcsResponseAsync<bool>("Environment/AddNetworkSecurityRule", projectId, null, body, URL_ENCODED_CONTENTTYPE, cancellationToken);
-        }
-
-        /// <summary>
         /// Deletes the network security group for the given service fabric project and environment
         /// </summary>
         /// <param name="projectid">Project ID</param>
@@ -141,7 +119,7 @@ namespace LcsApi.Clients
         /// <param name="rules">Rules</param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task DeleteServiceFabricNetworkSecurityRules(int projectid, Guid environmentId, string[] rules, CancellationToken cancellationToken = default)
+        public async Task DeleteServiceFabricNetworkSecurityRulesAsync(int projectid, Guid environmentId, string[] rules, CancellationToken cancellationToken = default)
         {
             await PostLcsResponseAsync<object>("EnvironmentServicingV2/SFDeleteNetworkSecurityRules", projectid, new Dictionary<string, object>()
             {
@@ -158,7 +136,7 @@ namespace LcsApi.Clients
         /// <param name="rules">Rules</param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task DeleteSaaSNetworkSecurityRules(int projectid, Guid environmentId, string[] rules, CancellationToken cancellationToken = default)
+        public async Task DeleteSaaSNetworkSecurityRulesAsync(int projectid, Guid environmentId, string[] rules, CancellationToken cancellationToken = default)
         {
             await PostLcsResponseAsync<object>("Environment/DeleteNetworkSecurityRules", projectid, new Dictionary<string, object>()
             {
@@ -176,7 +154,7 @@ namespace LcsApi.Clients
         /// <param name="reasonDetails">Reason details for access</param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task<LcsResponse<Guid>> AddUserWithExpiry(int projectId, Guid environmentId, string reason, string reasonDetails, CancellationToken cancellationToken = default)
+        public async Task<LcsResponse<Guid>> AddUserWithExpiryAsync(int projectId, Guid environmentId, string reason, string reasonDetails, CancellationToken cancellationToken = default)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -449,7 +427,7 @@ namespace LcsApi.Clients
         /// <param name="environmentId">Environment ID</param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task<NetworkSecurityGroup> GetSaaSNetworkSecurityGroup(int projectId, Guid environmentId, CancellationToken cancellationToken = default)
+        public async Task<NetworkSecurityGroup> GetSaaSNetworkSecurityGroupAsync(int projectId, Guid environmentId, CancellationToken cancellationToken = default)
         {
             return await GetLcsResponseAsync<NetworkSecurityGroup>($"Environment/GetNetworkSecurityGroup", projectId, new Dictionary<string, object>() { { "lcsEnvironmentId", environmentId } }, cancellationToken);
         }
@@ -558,6 +536,17 @@ namespace LcsApi.Clients
         public async Task<bool> IsOneVersionUpdateApplicableAsync(int projectId, Guid environmentId, CancellationToken cancellationToken = default)
         {
             return await GetLcsResponseAsync<bool>($"Environment/IsOneVersionUpdateApplicable", projectId, new Dictionary<string, object>() { { "environmentId", environmentId } }, cancellationToken);
+        }
+
+        /// <summary>
+        /// Checks if translation service is enabled for the project
+        /// </summary>
+        /// <param name="projectId">Project ID</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<bool> HasTranslationServiceEntitlement(int projectId, CancellationToken cancellationToken = default)
+        {
+            return await GetLcsResponseAsync<bool>($"RainierHome/HasTranslationServiceEntitlement", projectId, null, cancellationToken);
         }
 
         /// <summary>
@@ -1060,8 +1049,6 @@ namespace LcsApi.Clients
         /// <returns></returns>
         public async Task<bool> UpdateProjectUserNotificationAsync(int projectId, int notificationId, bool enabled, CancellationToken cancellationToken = default)
         {
-            var a = "Notification/UpdateProjectUserNotification";
-
             return await PostLcsResponseAsync<bool>("Notification/UpdateProjectUserNotification", projectId, null, new Dictionary<string, object>()
             {
                 { "notificationId", notificationId },
