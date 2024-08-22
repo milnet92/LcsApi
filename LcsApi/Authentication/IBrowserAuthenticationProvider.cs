@@ -10,6 +10,6 @@ namespace LcsApi.Authentication
     {
         IBrowserAuthenticationOptions Options { get; }
         public string LoginUrl{ get; }
-        internal string GetCookies();
+        public string GetCookies();
     }
 }
