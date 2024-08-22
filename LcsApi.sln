@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LcsApi", "LcsApi\LcsApi.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LcsApiNetFramework", "LcsApiNetFramework\LcsApiNetFramework.csproj", "{0D1C874E-3674-4881-8842-B36723F915A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LcsApiNetFrameworkExample", "LcsApiNetFrameworkExample\LcsApiNetFrameworkExample.csproj", "{4FA42086-8AB5-46C0-AD0F-ED9843ECC6BD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{0D1C874E-3674-4881-8842-B36723F915A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D1C874E-3674-4881-8842-B36723F915A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D1C874E-3674-4881-8842-B36723F915A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4FA42086-8AB5-46C0-AD0F-ED9843ECC6BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FA42086-8AB5-46C0-AD0F-ED9843ECC6BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FA42086-8AB5-46C0-AD0F-ED9843ECC6BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FA42086-8AB5-46C0-AD0F-ED9843ECC6BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
