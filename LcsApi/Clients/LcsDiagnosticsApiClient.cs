@@ -11,7 +11,7 @@ using LcsApi.Model.Diagnostics;
 
 namespace LcsApi.Clients
 {
-    internal class LcsDiagnosticsApiClient : LcsApiClientBase
+    public class LcsDiagnosticsApiClient : LcsApiClientBase
     {
         public const int DEFAULT_DIAGNOSTICS_RETURN_LIMIT = 50;
         public const int DEFAULT_METRICS_RETURN_LIMIT = 200;

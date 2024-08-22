@@ -7,7 +7,7 @@ using LcsApi.Model.Sizing;
 
 namespace LcsApi.Clients
 {
-    internal class LcsSizingApiClient : LcsApiClientBase
+    public class LcsSizingApiClient : LcsApiClientBase
     {
         private const string DEFAULT_API_SUBDOMAIN = "sizing";
 
